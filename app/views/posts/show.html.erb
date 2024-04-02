@@ -1,0 +1,18 @@
+<h3><%= @post.title %></h3>
+<% if @post.img_url.present? %>
+  <%= image_tag @post.img_url, class: "post-img" %>
+<% end %>
+<div>
+  <%= @post.body %>
+</div>
+
+<div>
+  <%= link_to "Edit Post", edit_post_path(@post) %>
+</div>
+
+<div>
+  <%= link_to "Delete Post", post_path(@post), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %>
+</div>

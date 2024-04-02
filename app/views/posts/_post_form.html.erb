@@ -1,0 +1,17 @@
+<%= form_with model: @post, html: { class: "post-form" } do |f| %>
+  <div class="form-input">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-input">
+    <%= f.label :body %>
+    <%= f.text_area :body, size: '100x20', class: "form-control" %>
+  </div>
+  <div class="form-input">
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url, placeholder: "Optional", class: "form-control" %>
+  </div>
+  <div class="form-input">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
