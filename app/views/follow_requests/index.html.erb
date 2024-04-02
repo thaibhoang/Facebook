@@ -1,0 +1,25 @@
+<%= turbo_frame_tag "new-request-form", src:new_follow_request_path %>
+
+<div id="sent_follow_requests">
+  <div>Request Sent:</div>
+  <%= render @sent_follow_requests %>
+</div>
+
+<hr>
+<div id="received_follow_requests">
+  <div>Request Received:</div>
+  <% @received_follow_requests.each do |request| %>
+    <p>
+      <%= request.sender.email %> requested to follow you
+      <%= link_to "Remove request", follow_request_path(request), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
+      <%= link_to "Accept request", accept_follow_request_path(request), data: {
+        turbo_method: :put
+      } %>
+    </p> 
+  <% end %>
+</div>
+
+

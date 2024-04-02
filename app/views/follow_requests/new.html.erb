@@ -1,0 +1,17 @@
+<turbo-frame id="new-request-form">
+  <% if @error_message %>
+    <div class="alert alert-danger" role="alert">
+      <%= @error_message %>
+    </div>
+  <% end %>
+  
+  <div>Add new follow request: </div>
+  <p> 
+    <%= form_with model: @request do |f| %>
+      <%= f.label :receiver_email, "Followee's Email: " %>
+      <%= f.text_field :receiver_email %>
+      <%= f.submit "Send Request" %>
+    <% end %>
+  </p>
+  <hr>
+</turbo-frame>

@@ -1,0 +1,7 @@
+<p>
+  You requested to follow <%= follow_request.receiver.email %>
+  <%= link_to "Remove request", follow_request_path(follow_request), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %>
+</p>
