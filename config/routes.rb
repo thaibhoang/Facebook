@@ -12,4 +12,8 @@ Rails.application.routes.draw do
     put "accept", on: :member
   end
 
+  resources :posts do
+    resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:new, :create, :destroy]
+  end
 end
