@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     good_ids = allowed_user_ids
-    @posts = Post.where('updated_at > ?', Time.now - 2.days).where(user_id: good_ids).order(updated_at: :desc)
+    @posts = Post.where('updated_at > ?', Time.now - 7.days).where(user_id: good_ids).order(updated_at: :desc)
   end
 
   def new
