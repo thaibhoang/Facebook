@@ -6,13 +6,31 @@
   <%= @post.body %>
 </div>
 
-<div>
-  <%= link_to "Edit Post", edit_post_path(@post) %>
+
+
+<div id="like-box">
+  <% if @like_count > 0 %>
+    <div>
+      <%= @like_count %> people liked this post
+    </div>
+  <% end %>
+  <% if @like %>
+    <%= link_to "unlike", post_like_path(@post, @like), data: {turbo_method: :delete} %>
+  <% else %>
+    <%= link_to "like", post_likes_path(@post, @like), data: {turbo_method: :post} %>
+  <% end %>
 </div>
 
-<div>
-  <%= link_to "Delete Post", post_path(@post), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %>
-</div>
+<% if @post.user_id == current_user.id %>
+  <div>
+    <%= link_to "Edit Post", edit_post_path(@post) %>
+  </div>
+
+  <div>
+    <%= link_to "Delete Post", post_path(@post), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
+    } %>
+  </div>
+<% end %>
+

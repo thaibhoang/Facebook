@@ -20,7 +20,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    good_ids = allowed_user_ids
+    @post = Post.where(user_id: good_ids).find(params[:id])
+    @like = current_user.likes.find_by(post_id: @post.id)
+    @like_count = @post.likes.count
   end
 
   def edit
@@ -29,17 +32,21 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params)
-      redirect_to @post
-    else
-      render :edit, status: :unprocessable_entity
+    if @post.user_id == current_user.id
+      if @post.update(post_params)
+        redirect_to @post
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path
+    if @post.user_id == current_user.id
+      @post.destroy
+      redirect_to posts_path
+    end
   end
 
   private

@@ -1,0 +1,10 @@
+<%= turbo_stream.replace "like-box" do %>
+  <div id="like-box">
+    <% if @like_count > 0 %>
+      <div>
+        <%= @like_count %> people liked this post
+      </div>
+    <% end %>
+    <%= link_to "unlike", post_like_path(@post, @like), data: {turbo_method: :delete} %>
+  </div>
+<% end %>
