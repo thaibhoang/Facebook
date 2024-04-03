@@ -6,8 +6,7 @@
   <%= @post.body %>
 </div>
 
-
-
+<hr>
 <div id="like-box">
   <% if @like_count > 0 %>
     <div>
@@ -21,6 +20,19 @@
   <% end %>
 </div>
 
+<hr>
+<div>
+  <%= turbo_frame_tag "new-comment", src: new_post_comment_path(@post, @post.comments.build) %>
+</div>
+
+<% if @comments.present? %>  
+  <h3>Comments on post:</h3>
+  <div id="comment-box">
+    <%= render @comments %>
+  </div>
+<% end %>
+
+<hr>
 <% if @post.user_id == current_user.id %>
   <div>
     <%= link_to "Edit Post", edit_post_path(@post) %>

@@ -1,0 +1,12 @@
+<% if comment && comment.user %>
+  <div id="comment-<%= comment.id %>">
+    <%= comment.user.email %>: <%= comment.body %>
+    <% if comment.user == current_user %> 
+      <%= link_to "Remove Comment", post_comment_path(comment.post, comment), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
+    <% end %>
+  </div>
+
+<% end %>

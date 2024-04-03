@@ -20,10 +20,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    good_ids = allowed_user_ids
-    @post = Post.where(user_id: good_ids).find(params[:id])
+    @post = Post.find(params[:id])
     @like = current_user.likes.find_by(post_id: @post.id)
     @like_count = @post.likes.count
+    @comments = @post.comments
   end
 
   def edit
