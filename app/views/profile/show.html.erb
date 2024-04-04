@@ -1,0 +1,10 @@
+<%= link_to @profile.avatar do %>
+  <%= image_tag @profile.avatar.variant(:thumb_300)%>
+<% end %>
+<div>Name: <%= @profile.user_name %></div>
+<div>About me: <%= @profile.about %></div>
+<div>Location: <%= @profile.location %></div>
+<%= link_to "Edit profile", edit_profile_path(@profile) %>
+
+<%= render current_user.posts %>
+

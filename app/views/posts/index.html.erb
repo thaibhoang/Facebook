@@ -1,15 +1,2 @@
 <div><%= link_to "New Post", new_post_path %></div>
-<% @posts.each do |post| %>
-  <hr> 
-  <%= link_to post_path(post) do %> 
-    <div>
-      <%= post.title %>
-    </div>  
-    <% if post.img_url.present? %>
-      <div>
-        <%= image_tag post.img_url, class: "post-img" %>
-      </div> 
-    <% end %>
-  <% end %>   
-  
-<% end %>
+<%= render @posts %>

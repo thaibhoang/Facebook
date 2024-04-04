@@ -1,0 +1,11 @@
+<hr> 
+<%= link_to post_path(post) do %> 
+  <div>
+    <%= post.title %>
+  </div>  
+  <% if post.img_url.present? %>
+    <div>
+      <%= image_tag post.img_url, class: "post-img" %>
+    </div> 
+  <% end %>
+<% end %>   
