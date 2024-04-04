@@ -17,6 +17,7 @@
     <% if current_user %>
       <%= link_to "Home", root_path %>
       <%= link_to "Follow Requests", follow_requests_path %>
+      <%= link_to "Find others", users_path %>
       <% if current_user.profile %>
         <%= link_to "Profile", profile_path(current_user.profile) %> 
       <% else %>

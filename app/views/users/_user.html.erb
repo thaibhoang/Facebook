@@ -1,0 +1,23 @@
+<% if user %>
+  <div>    
+    <% if !user.cannot_send_follow_request?(current_user) %>
+      <p>
+        <%= form_with model:FollowRequest.new, url:follow_requests_path, method: :post do |f| %>
+          <%= f.hidden_field :receiver_email, value: user.email %>
+          <%= f.hidden_field :from_users, value: true %>
+          <%= user.email %>
+          <%= f.submit "Send follow request" %>
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <% follow_request = user.cannot_send_follow_request?(current_user) %>
+        <%= user.email %>
+        <%= link_to button_tag("Remove request"), follow_request_path(follow_request), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        } %>
+      </p>
+    <% end %>
+  </div>
+<% end %>

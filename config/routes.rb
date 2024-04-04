@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   end
 
   resources :profile
+  resources :users, only: :index
 end

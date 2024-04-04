@@ -25,7 +25,11 @@ class FollowRequestsController < ApplicationController
 
       respond_to do |format|
         if @request.save
-          format.turbo_stream 
+          if !params[:follow_request][:from_users]
+            format.turbo_stream 
+          else
+            redirect_to users_path
+          end
         else
           format.html { render :new, status: :unprocessable_entity }
         end
