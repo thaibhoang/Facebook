@@ -5,6 +5,6 @@
 <div>About me: <%= @profile.about %></div>
 <div>Location: <%= @profile.location %></div>
 <%= link_to "Edit profile", edit_profile_path(@profile) %>
-
+<div><%= link_to "New Post", new_post_path %></div>
 <%= render current_user.posts %>
 
