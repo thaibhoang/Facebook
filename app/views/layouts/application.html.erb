@@ -17,7 +17,7 @@
           <p class="alert"><%= alert %></p>
           <p class="error"><%= flash[:error] %></p>
           <% if current_user %>
-            <%= link_to "Home", root_path %>
+            <%= link_to "Facebook Clone", root_path %>
             <%= link_to "Follow Requests", follow_requests_path %>
             <%= link_to "Find others", users_path %>
             <% if current_user.profile %>
