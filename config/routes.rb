@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'hangouts/index'
   get 'my_registrations/create'
   devise_for :users, controllers: { registrations: "my_registrations" }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -20,4 +21,6 @@ Rails.application.routes.draw do
 
   resources :profile
   resources :users, only: :index
+  resources :messages, only: [:create]
+  resources :hangouts, only: [:index]
 end

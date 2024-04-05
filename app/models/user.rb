@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :profile
+  has_many :messages
   
   def cannot_send_follow_request?(current_user)
     current_user.sent_follow_requests.find_by(receiver_id: self.id)    

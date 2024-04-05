@@ -94,3 +94,13 @@ nav .right  {
   margin: auto;
   display: block;
 }
+
+#message-display {
+  height: 80vh;
+  overflow: auto
+}
+
+#message-input {
+  width: 95%;
+}
+
