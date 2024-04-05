@@ -1,11 +1,22 @@
 <hr> 
-<%= link_to post_path(post) do %> 
-  <div>
-    <%= post.title %>
-  </div>  
-  <% if post.img_url.present? %>
+<div class="post-window">
+  <%= link_to post_path(post) do %>
+    <p><%= post.user != current_user ? post.user.email : "You Posted"%></p>
     <div>
-      <%= image_tag post.img_url, class: "post-img" %>
-    </div> 
+      <%= post.title %>
+    </div>
+    <% if post.img_url.present? %>
+      <div class="image-container">
+        <%= image_tag post.img_url, class: "post-img" %>
+      </div>
+    <% end %>
+    <div><%= post.rich_body %></div>
+    <% if post.images.present? %>
+      <div class="image-container">
+        <% post.images.each do |image| %>
+          <%= image_tag(post.resize_500(image)) %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>   
+</div> 

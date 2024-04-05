@@ -8,6 +8,13 @@
     <%= f.text_area :body, size: '100x20', class: "form-control" %>
   </div>
   <div class="form-input">
+    <%= f.rich_text_area :rich_body, class: "form-control" %>
+  </div>
+  <div class="form-input">
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true, class: "form-control" %>
+  </div>
+  <div class="form-input">
     <%= f.label :img_url %>
     <%= f.text_field :img_url, placeholder: "Optional", class: "form-control" %>
   </div>

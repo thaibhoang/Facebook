@@ -5,6 +5,18 @@
 <div>
   <%= @post.body %>
 </div>
+<div>
+  <%= @post.rich_body %>
+</div>
+
+<% if @post.images.present? %>
+  <hr>
+  <div>
+    <% @post.images.each do |image| %>
+      <div><%= link_to image_tag(@post.resize_500(image)), image %></div>
+    <% end %>
+  </div>
+<% end %>
 
 <hr>
 <div id="like-box">

@@ -47,6 +47,50 @@
 }
 
 .post-img {
-  height: 70vh;
+  height: 500px;
   max-width: auto;
+}
+
+main {
+  min-height: 90vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgb(247, 247, 243);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.6rem;
+}
+
+nav .left {
+  display: flex;
+  justify-content: center;
+}
+nav .right  {
+  margin-right: 0;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-window {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.image-container img {
+  margin: auto;
+  display: block;
 }
